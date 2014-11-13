@@ -1,4 +1,3 @@
-//= require kindeditor
 //= require jquery
 //= require jquery_ujs
 //= require admin/jquery-migrate-1.2.1.min

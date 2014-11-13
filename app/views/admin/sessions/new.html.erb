@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Signin | MasterGolf ManagementSystem</title>
-  <%= stylesheet_link_tag 'signin', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Signin | JustDrink ManagementSystem</title>
+  <%= stylesheet_link_tag 'admin_signin', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
   <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -22,7 +22,7 @@
         <div id="logo"></div>
       </div>
       <div class="col-md-5">
-        <%= form_tag signin_path, method: :post do %>
+        <%= form_tag admin_signin_path, method: :post do %>
           <h4 class="nomargin">管理员登录</h4>
           <p class="mt5 mb20 text-danger"><%= flash[:alert] %></p>
           <%= text_field_tag :account, nil, class: 'form-control uname', placeholder: '账号' %>
@@ -37,6 +37,6 @@
     </div>
   </div>
 </section>
-<%= javascript_include_tag 'signin', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'admin_signin', 'data-turbolinks-track' => true %>
 </body>
 </html>

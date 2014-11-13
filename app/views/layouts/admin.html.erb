@@ -22,97 +22,17 @@
     <div class="leftpanelinner">    
       <h5 class="sidebartitle">Match Navigation</h5>
       <ul class="nav nav-pills nav-stacked nav-bracket">
-        <% if session[:administrator][:match_id] and @match %>
-        <li><%= link_to raw("<i class=\"fa fa-home\"></i> <span>#{@match.name}</span>"), dashboard_path %></li>
-        <li class="nav-parent"><a href=""><i class="fa fa-flag"></i> <span>赛事管理</span></a>
+        <li class="nav-parent"><a href=""><i class="fa fa-bullhorn"></i> <span>分类管理</span></a>
           <ul class="children">
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 赛事信息"), match_path %></li>
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 赛事监控"), monitor_path(@match), target: '_blank' if @match.started? %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新分组'), new_group_path %></li>
-          </ul>
-        </li>
-        <% @match.groups.each do |group| %>
-        <li class="nav-parent"><a href=""><i class="fa fa-user"></i> <span><%= group.name %>管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 分组信息"), group %></li>
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 参赛者列表"), group_competitors_path(group) %></li>
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 创建新参赛者"), new_group_competitor_path(group) %></li>
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 出发表"), group_tee_times_path(group) %></li>
-            <li><%= link_to raw("<i class=\"fa fa-caret-right\"></i> 成绩排名"), group_scoreboards_path(group) %></li>
-          </ul>
-        </li>
-        <% end if @match %>
-        <li class="nav-parent"><a href=""><i class="fa fa-bullhorn"></i> <span>公告管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 公告列表'), announcements_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新公告'), new_announcement_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-file-text-o"></i> <span>图文管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 图文列表'), articles_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新图文'), new_article_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-file-image-o"></i> <span>海报管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 海报列表'), posters_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-usd"></i> <span>赞助商管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 赞助商列表'), sponsors_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新赞助商'), new_sponsor_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-paper-plane-o"></i> <span>球道图管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 球道图列表'), fairways_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新球道图'), new_fairway_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-paper-plane-o"></i> <span>报名管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 报名列表'), entry_forms_path %></li>
-          </ul>
-        </li>
-        <li><%= link_to raw("<i class=\"fa fa-clipboard\"></i> <span>记分卡日志</span>"), score_operations_path %></li>
-        <li><%= link_to raw('<i class="fa fa-sign-out"></i> <span>退出赛事</span>'), unlock_match_path %>
-        </li>
-        <% else %>
-        <li><%= link_to raw('<i class="fa fa-flag"></i> <span>赛事选择</span>'), matches_path %>
-        <li><%= link_to raw('<i class="fa fa-flag-checkered"></i> <span>创建新赛事</span>'), new_match_path %>
-        </li>
-        <% end %>
-      </ul>
-      <h5 class="sidebartitle">Common Navigation</h5>
-      <ul class="nav nav-pills nav-stacked nav-bracket">
-        <li class="nav-parent"><a href=""><i class="fa fa-compass"></i> <span>球场管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 球场列表'), courses_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新球场'), new_course_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-laptop"></i> <span>广告管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 广告列表'), advertisements_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新广告'), new_advertisement_path %></li>
-          </ul>
-        </li>
-        <li class="nav-parent"><a href=""><i class="fa fa-tablet"></i> <span>用户管理</span></a>
-          <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 用户列表'), users_path %></li>
+            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 分类列表'), admin_categories_path %></li>
+            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新分类'), new_admin_category_path %></li>
           </ul>
         </li>
         <li class="nav-parent"><a href=""><i class="fa fa-cog"></i> <span>系统管理</span></a>
           <ul class="children">
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 角色列表'), roles_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新角色'), new_role_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 管理员列表'), administrators_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新管理员'), new_administrator_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> API调试器'), api_debuger_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 图片资源列表'), images_path %></li>
-            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 错误列表'), errors_path %></li>
+            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 管理员列表'), admin_users_path %></li>
+            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 创建新管理员'), new_admin_user_path %></li>
+            <li><%= link_to raw('<i class="fa fa-caret-right"></i> 错误列表'), admin_errors_path %></li>
           </ul>
         </li>
       </ul>
@@ -140,7 +60,6 @@
   <div class="mainpanel">
     <div class="headerbar">
       <a class="menutoggle"><i class="fa fa-bars"></i></a>
-      <%= brac_search %>
       <div class="header-right">
         <ul class="headermenu">
           <li>
@@ -192,13 +111,13 @@
           <li>
             <div class="btn-group">
               <button class="btn btn-default dropdown-toggle tp-icon" data-toggle="dropdown">
-                <span class="small">欢迎您，<%= session[:administrator][:name] %></span>
+                <span class="small">欢迎您，<%= session[:user][:name] %></span>
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                <li><%= link_to raw('<i class="glyphicon glyphicon-user"></i> 我的信息'), edit_profile_path %></li>
-                <li><%= link_to raw('<i class="glyphicon glyphicon-cog"></i> 修改密码'), edit_password_profile_path %></li>
-                <li><%= link_to raw('<i class="glyphicon glyphicon-log-out"></i> 退出登录'), signout_path %></li>
+                <li><%= link_to raw('<i class="glyphicon glyphicon-user"></i> 我的信息'), edit_admin_profile_path %></li>
+                <li><%= link_to raw('<i class="glyphicon glyphicon-cog"></i> 修改密码'), edit_password_admin_profile_path %></li>
+                <li><%= link_to raw('<i class="glyphicon glyphicon-log-out"></i> 退出登录'), admin_signout_path %></li>
               </ul>
             </div>
           </li>
@@ -208,7 +127,7 @@
     <%= yield %>
   </div>
 </section>
-<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'admin' %>
 <%= content_for :javascript %>
 </body>
 </html>
