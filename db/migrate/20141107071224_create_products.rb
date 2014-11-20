@@ -1,6 +1,6 @@
 class CreateProducts < ActiveRecord::Migration
   def change
-    create_table :product do |t|
+    create_table :products do |t|
       t.string :uuid, limit: 36, null: false
       t.references :category, null: false
       t.string :chinese_name, limit: 500, null: false
@@ -14,5 +14,6 @@ class CreateProducts < ActiveRecord::Migration
       t.boolean :trashed, default: false, null: false
       t.timestamps
     end
+    add_index :products, :uuid, unique: true
   end
 end
